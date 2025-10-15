@@ -1,0 +1,73 @@
+﻿<Window x:Class="Data_collection.Views.ExportFilter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Data_collection.Views"
+        mc:Ignorable="d"
+        Title="导出条件设置" Height="400" Width="500"
+        ResizeMode="NoResize">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 长度条件 -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
+            <TextBlock Text="长度:" Width="60" VerticalAlignment="Center"/>
+            <ComboBox x:Name="LengthOperator" Width="60" Margin="5,0">
+                <ComboBoxItem Content="="/>
+                <ComboBoxItem Content="&lt;"/>
+                <ComboBoxItem Content="&gt;"/>
+                <ComboBoxItem Content="&lt;="/>
+                <ComboBoxItem Content="&gt;="/>
+                <ComboBoxItem Content="&lt;&gt;"/>
+            </ComboBox>
+            <TextBox x:Name="LengthValue" Width="100" Margin="5,0" HorizontalAlignment="Left"/>
+            <TextBlock Text="颜色:" Margin="10,0" VerticalAlignment="Center"/>
+            <Button x:Name="LengthColor" Width="30" Height="30" Click="ColorButton_Click" Background="White"/>
+        </StackPanel>
+
+        <!-- 宽度条件 -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
+            <TextBlock Text="宽度:" Width="60" VerticalAlignment="Center"/>
+            <ComboBox x:Name="WidthOperator" Width="60" Margin="5,0">
+                <ComboBoxItem Content="="/>
+                <ComboBoxItem Content="&lt;"/>
+                <ComboBoxItem Content="&gt;"/>
+                <ComboBoxItem Content="&lt;="/>
+                <ComboBoxItem Content="&gt;="/>
+                <ComboBoxItem Content="&lt;&gt;"/>
+            </ComboBox>
+            <TextBox x:Name="WidthValue" Width="100" Margin="5,0" HorizontalAlignment="Left"/>
+            <TextBlock Text="颜色:" Margin="10,0" VerticalAlignment="Center"/>
+            <Button x:Name="WidthColor" Width="30" Height="30" Click="ColorButton_Click" Background="White"/>
+        </StackPanel>
+
+        <!-- 高度条件 -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
+            <TextBlock Text="高度:" Width="60" VerticalAlignment="Center"/>
+            <ComboBox x:Name="HeightOperator" Width="60" Margin="5,0">
+                <ComboBoxItem Content="="/>
+                <ComboBoxItem Content="&lt;"/>
+                <ComboBoxItem Content="&gt;"/>
+                <ComboBoxItem Content="&lt;="/>
+                <ComboBoxItem Content="&gt;="/>
+                <ComboBoxItem Content="&lt;&gt;"/>
+            </ComboBox>
+            <TextBox x:Name="HeightValue" Width="100" Margin="5,0" HorizontalAlignment="Left"/>
+            <TextBlock Text="颜色:" Margin="10,0" VerticalAlignment="Center"/>
+            <Button x:Name="HeightColor" Width="30" Height="30" Click="ColorButton_Click" Background="White"/>
+        </StackPanel>
+
+        <!-- 按钮区域 -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Content="导出" Click="ExportButton_Click" Width="75" Margin="5"/>
+            <Button Content="取消" Click="CancelButton_Click" Width="75" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

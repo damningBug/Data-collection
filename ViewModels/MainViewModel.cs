@@ -25,6 +25,7 @@ namespace Data_collection.ViewModels
         public ICommand FilterCommand { get; }
         public ICommand ResetFilterCommand { get; }
         public ICommand OpenSettingsCommand { get; }
+        public ICommand ExportCommand { get; }
 
         // 属性
         public ObservableCollection<MyDataItem> DataItems
@@ -89,6 +90,7 @@ namespace Data_collection.ViewModels
             FilterCommand = new RelayCommand(ApplyFilters);
             ResetFilterCommand = new RelayCommand(ResetFilters);
             OpenSettingsCommand = new RelayCommand(OpenSettings);
+            ExportCommand = new RelayCommand(OpenExportWindow);
 
             // 初始化定时器，每分钟更新一次数据
             _updateTimer = new DispatcherTimer
@@ -149,6 +151,34 @@ namespace Data_collection.ViewModels
             foreach (var item in filtered)
             {
                 FilteredDataItems.Add(item);
+            }
+        }
+
+        // 打开导出窗口
+        private void OpenExportWindow()
+        {
+            var exportWindow = new Views.ExportFilter();
+            if (exportWindow.ShowDialog() == true)
+            {
+                // 获取用户设置的导出条件
+                var criteria = exportWindow.Criteria;
+                // 执行导出操作
+                ExportData(criteria);
+            }
+        }
+
+        // 执行导出操作
+        private void ExportData(ExportFilterCriteria criteria)
+        {
+            try
+            {
+                // 这里实现实际的导出逻辑
+                // 可以根据criteria中的条件筛选数据并导出
+                StatusMessage = $"数据导出成功，条件: 长度{criteria.LengthOperator}{criteria.LengthValue}";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"数据导出失败: {ex.Message}";
             }
         }
 

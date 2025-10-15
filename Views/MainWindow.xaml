@@ -80,7 +80,7 @@
             </Grid>
             <!-- 右侧筛选区域（可放置其他筛选条件或信息） -->
             <Grid Grid.Column="1" Margin="5">
-                <TextBlock Text="筛选辅助信息区域" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <Button Grid.Row="0" Content="导出" Command="{Binding ExportCommand}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,35,5,0" Padding="5,2" Width="70"/>
             </Grid>
         </Grid>
         
